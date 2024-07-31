@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { User } from '../../db/schemas/user.schema';
-import { S3Service } from '../../s3/s3.service';
+import { S3Service } from '../../utils/s3/s3.service';
 
 @Injectable()
 export class UsersService {

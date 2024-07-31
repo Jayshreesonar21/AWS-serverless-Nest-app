@@ -3,7 +3,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 
 import { NotificationService } from './notification.service';
 import { UsersModule } from '../users/users.module';
-import { MailerService } from '../../mailer/mailer.service';
+import { MailerService } from '../../utils/mailer/mailer.service';
 
 @Module({
   imports: [
