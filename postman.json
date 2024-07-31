@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "c3e3cd0e-8b0e-473f-8458-0b17e0afe6e4",
+		"name": "Nest APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30255294",
+		"_collection_link": "https://interstellar-flare-161727.postman.co/workspace/My-Workspace~85324779-364e-416a-8a0b-44c95934a83b/collection/30255294-c3e3cd0e-8b0e-473f-8458-0b17e0afe6e4?action=share&source=collection_link&creator=30255294"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jashree\",\r\n    \"age\": 24,\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/dev/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dev",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Email already exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jashree\",\r\n    \"age\": 24,\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/dev/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dev",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"Email already exists\",\r\n    \"error\": \"Conflict\",\r\n    \"statusCode\": 409\r\n}"
+						},
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Jashree\",\r\n    \"age\": 24,\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/dev/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dev",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"User created successfully!\",\r\n    \"data\": {\r\n        \"name\": \"Jashree\",\r\n        \"age\": 24,\r\n        \"email\": \"jayasonar2000@gmail.com\",\r\n        \"password\": \"$2a$10$tQYcKdoJpBVXR.tZOdH9ZOicsBHJaZntwDkxcPBCKrEvGC6qsHiSG\",\r\n        \"_id\": \"66a8da23b00bfd272ce2605f\",\r\n        \"__v\": 0\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/dev/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dev",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/dev/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dev",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"User #jayasonar2000@gmail.com not found\",\r\n    \"error\": \"Not Found\",\r\n    \"statusCode\": 404\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Upload profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE4ZGEyM2IwMGJmZDI3MmNlMjYwNWYiLCJlbWFpbCI6ImpheWFzb25hcjIwMDBAZ21haWwuY29tIiwiaWF0IjoxNzIyMzQxOTY5LCJleHAiOjE3MjIzNDU1Njl9.rkmtl_MCRq-gM3u9USkc4Twp9jkdeMAArKxAFo67iFs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "/C:/Users/jsjay/Downloads/Official Background.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/dev/user/upload-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dev",
+								"user",
+								"upload-profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "profile",
+											"type": "file",
+											"src": "/C:/Users/jsjay/Downloads/Official Background.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/dev/user/upload-profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dev",
+										"user",
+										"upload-profile"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"_id\": \"66a8da23b00bfd272ce2605f\",\r\n    \"name\": \"Jashree\",\r\n    \"age\": 24,\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"$2a$10$tQYcKdoJpBVXR.tZOdH9ZOicsBHJaZntwDkxcPBCKrEvGC6qsHiSG\",\r\n    \"__v\": 0,\r\n    \"profile\": \"3d7e861e-d8e3-48b2-b6e9-baa1609d5ab9-hair-577540_1280.jpg\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get user detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmE4ZGEyM2IwMGJmZDI3MmNlMjYwNWYiLCJlbWFpbCI6ImpheWFzb25hcjIwMDBAZ21haWwuY29tIiwiaWF0IjoxNzIyMzQxOTY5LCJleHAiOjE3MjIzNDU1Njl9.rkmtl_MCRq-gM3u9USkc4Twp9jkdeMAArKxAFo67iFs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/dev/user/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dev",
+								"user",
+								"detail"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/dev/user/detail",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"dev",
+										"user",
+										"detail"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"_id\": \"66a8da23b00bfd272ce2605f\",\r\n    \"name\": \"Jashree\",\r\n    \"age\": 24,\r\n    \"email\": \"jayasonar2000@gmail.com\",\r\n    \"password\": \"$2a$10$tQYcKdoJpBVXR.tZOdH9ZOicsBHJaZntwDkxcPBCKrEvGC6qsHiSG\",\r\n    \"__v\": 0,\r\n    \"profile\": \"https://nestdemoprofile.s3.ap-south-1.amazonaws.com/3d7e861e-d8e3-48b2-b6e9-baa1609d5ab9-hair-577540_1280.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYKJRCOEC6PTKYWH%2F20240730%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240730T122250Z&X-Amz-Expires=900&X-Amz-Signature=aa714396c0fa33a0864be473765aaaf62d3ebfd5770da35096ed304c3e900848&X-Amz-SignedHeaders=host\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/dev/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"test"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/dev/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dev",
+								"test"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "Hello world!"
+				}
+			]
+		}
+	]
+}

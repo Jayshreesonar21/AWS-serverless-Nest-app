@@ -1,0 +1,60 @@
+service: AWS-Serverless-Nest-API
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  env: ${file(env.yml)}
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ap-south-1
+  environment:
+    MONGODB_CONNECTION_URL: ${self:custom.env.MONGODB_CONNECTION_URL}
+    JWT_SECRET: ${self:custom.env.JWT_SECRET}
+    JWT_EXPIRY: ${self:custom.env.JWT_EXPIRY}
+    AWS_ACCESS_KEY_ID: ${self:custom.env.AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${self:custom.env.AWS_SECRET_ACCESS_KEY}
+    AWS_REGION: ${self:custom.env.AWS_REGION}
+    AWS_S3_BUCKET: ${self:custom.env.AWS_S3_BUCKET}
+    SMTP_USERNAME: ${self:custom.env.SMTP_USERNAME}
+    SMTP_PASSWORD: ${self:custom.env.SMTP_PASSWORD}
+
+functions:
+  test:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: /test
+          method: GET
+          cors: true
+  auth:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: /auth/signup
+          method: POST
+          cors: true
+      - http:
+          path: /auth/login
+          method: POST
+          cors: true
+  user:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: /user/detail
+          method: GET
+          cors: true
+      - http:
+          path: /user/upload-profile
+          method: POST
+          cors: true
+  notification:
+    handler: dist/main.handler
+    events:
+      - schedule:
+          rate: cron(0 * * * ? *)
+          enabled: true
